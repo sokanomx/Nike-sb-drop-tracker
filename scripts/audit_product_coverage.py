@@ -74,7 +74,7 @@ def main() -> None:
     output.sort(key=lambda row: (row["coverage_status"], row["state"], row["name"].casefold()))
     fields = list(rows[0]) + ["catalog_products", "nike_sb_products", "target_products", "coverage_status"]
     with OUTPUT.open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(output)
     counts: dict[str, int] = {}

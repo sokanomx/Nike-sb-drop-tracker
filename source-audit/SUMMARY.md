@@ -4,10 +4,10 @@ The live tracker remains unchanged at 11 stores. This audit is a staging queue.
 
 ## First verified URL batch
 
-- 50 candidate storefronts tested
-- 31 currently show products matching the tracker scope
+- 55 candidate storefronts tested
+- 36 currently show products matching the tracker scope
   - 7 are already active
-  - 24 are verified Shopify expansion candidates
+  - 29 are verified Shopify expansion candidates
 - 2 show Nike SB merchandise but no current Dunk/apparel target
 - 4 are present on Nike's 2026 regional lists but show no current Nike SB catalog
 - 8 have a live Shopify feed but no current evidence of Nike SB
@@ -22,7 +22,11 @@ The exact results and live product counts are in `coverage.csv`.
 303 Boards; 35th North; Andrew; Apple Valley Emporium; Arts & Rec; Blacklist;
 Brooklyn Projects; Deli; DLX; Embassy; FTC; Furnace; Geometric; Holistic;
 Innercity; Labor; Magnolia; Olympia; Southside; Stardust; Time Machine; Travel;
-Underground; and Venue.
+Underground; Venue; Mainland Skate & Surf; Undefeated; People Skate and
+Snowboard; Ninetimes Skateshop; and The Room Surf and Skate Shop.
+
+The last five came from the user's September 2026 list. Ninetimes is Canadian
+and remains outside the US activation scope unless that scope is expanded.
 
 These are not active yet. They still need a small-batch rollout and silent seed.
 
