@@ -336,11 +336,7 @@
     },
     "shop.ccs.com": {
       "name": "CCS",
-      "products": {
-        "8447506317495": {
-          "46829785350327": false
-        }
-      },
+      "products": {},
       "seeded": true
     },
     "thepremierstore.com": {
