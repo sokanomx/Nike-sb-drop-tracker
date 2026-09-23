@@ -1,0 +1,13 @@
+{
+  "request_timeout_seconds": 8,
+  "max_workers": 16,
+  "shopify_page_size": 250,
+  "shopify_max_pages": 5,
+  "shoe_sizes": ["11"],
+  "top_sizes": ["L", "Large", "LT", "Large Tall"],
+  "bottom_sizes": ["33", "34", "33W", "34W"],
+  "timezone": "America/Los_Angeles",
+  "weekly_digest_weekday": 0,
+  "weekly_digest_hour": 9
+}
+

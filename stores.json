@@ -1,0 +1,91 @@
+{
+  "stores": [
+    {
+      "name": "510 Skateboarding",
+      "url": "https://www.510skateboarding.com",
+      "local": true,
+      "city": "Berkeley, CA",
+      "enabled": true,
+      "verified_shopify": "2026-09-22"
+    },
+    {
+      "name": "Atlas Skateboarding",
+      "url": "https://shop.atlasskateboarding.com",
+      "local": true,
+      "city": "San Mateo, CA",
+      "enabled": true,
+      "verified_shopify": "2026-09-22"
+    },
+    {
+      "name": "CCS",
+      "url": "https://shop.ccs.com",
+      "local": false,
+      "enabled": true,
+      "verified_shopify": "2026-09-22"
+    },
+    {
+      "name": "PLA Skateboarding",
+      "url": "https://plaskateboarding.com",
+      "local": false,
+      "city": "Sacramento, CA",
+      "enabled": true,
+      "verified_shopify": "2026-09-22"
+    },
+    {
+      "name": "Premier",
+      "url": "https://thepremierstore.com",
+      "local": false,
+      "city": "Grand Rapids, MI",
+      "enabled": true,
+      "verified_shopify": "2026-09-22"
+    },
+    {
+      "name": "Orchard",
+      "url": "https://orchardshop.com",
+      "local": false,
+      "city": "Boston, MA",
+      "enabled": true,
+      "verified_shopify": "2026-09-22"
+    },
+    {
+      "name": "Black Sheep Skate Shop",
+      "url": "https://blacksheepskateshop.com",
+      "local": false,
+      "city": "Charlotte, NC",
+      "enabled": true,
+      "verified_shopify": "2026-09-22"
+    },
+    {
+      "name": "No-Comply Skateshop",
+      "url": "https://nocomplyatx.com",
+      "local": false,
+      "city": "Austin, TX",
+      "enabled": true,
+      "verified_shopify": "2026-09-22"
+    },
+    {
+      "name": "Uprise Skateshop",
+      "url": "https://upriseskateshop.com",
+      "local": false,
+      "city": "Chicago, IL",
+      "enabled": true,
+      "verified_shopify": "2026-09-22"
+    },
+    {
+      "name": "NJ Skateshop",
+      "url": "https://njskateshop.com",
+      "local": false,
+      "city": "New Jersey",
+      "enabled": true,
+      "verified_shopify": "2026-09-22"
+    },
+    {
+      "name": "Kinetic Skateboarding",
+      "url": "https://kineticskateboarding.com",
+      "local": false,
+      "city": "Wilmington, DE",
+      "enabled": true,
+      "verified_shopify": "2026-09-22"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+name: Nike SB Weekly Email
+
+on:
+  schedule:
+    # Two UTC hours cover 9 AM Pacific in both PDT and PST. The app's local-time
+    # guard sends only the correct run and state prevents duplicates.
+    - cron: "5 16 * * 1"
+    - cron: "5 17 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nike-sb-tracker-state
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest discover -s tests
+      - name: Send scheduled recap
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          DIGEST_TO: ${{ secrets.DIGEST_TO }}
+        run: python -m tracker.cli digest ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
+      - name: Persist digest state
+        run: |
+          if git diff --quiet -- state/seen.json; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/seen.json
+          git commit -m "chore: record weekly digest"
+          git push
