@@ -1,0 +1,51 @@
+state,name,url,source,official_nike_2026_match,http_status,canonical_url,platform,queue,note,catalog_products,nike_sb_products,target_products,coverage_status
+AL,Faith,https://faith-skate-supply.myshopify.com/,community_shopify_2024,true,200,https://faith-skate-supply.myshopify.com,shopify,verified_shopify_ready,,582,1,0,nike_sb_found_no_current_targets
+NY,Krudco,https://www.krudco.com/,community_shopify_2024,false,200,https://www.krudco.com,shopify,verified_shopify_ready,,739,3,0,nike_sb_found_no_current_targets
+CA,818 Skate Shop,https://818skateshop.com/,community_shopify_2024,false,200,https://818skateshop.com,shopify,verified_shopify_ready,,828,0,0,no_nike_sb_evidence_manual_review
+CA,Apt. Skate Shop,https://aptskateshop.com/,community_shopify_2024,false,200,https://aptskateshop.com,shopify,verified_shopify_ready,,248,0,0,no_nike_sb_evidence_manual_review
+CA,Bakersfield Skate Co,https://www.bakersfieldskateco.com/,community_shopify_2024,false,200,https://www.bakersfieldskateco.com,shopify,verified_shopify_ready,,282,0,0,no_nike_sb_evidence_manual_review
+CA,Impact,https://www.impactskateshop.com/,community_shopify_2024,false,200,https://www.impactskateshop.com,shopify,verified_shopify_ready,,1097,0,0,no_nike_sb_evidence_manual_review
+NY,Flower,https://flowerskateshop.com/,community_shopify_2024,false,200,https://flowerskateshop.com,shopify,verified_shopify_ready,,249,0,0,no_nike_sb_evidence_manual_review
+OK,Money Ruins Everything,https://moneyruinseverything.com/,community_shopify_2024,false,200,https://moneyruinseverything.com,shopify,verified_shopify_ready,,285,0,0,no_nike_sb_evidence_manual_review
+OK,Nine One,https://nineoneskateco.com/,community_shopify_2024,false,200,https://nineoneskateco.com,shopify,verified_shopify_ready,,356,0,0,no_nike_sb_evidence_manual_review
+VA,Cardinal,https://cardinalskateshop.net/,community_shopify_2024,false,200,https://cardinalskateshop.net,shopify,verified_shopify_ready,,0,0,0,no_nike_sb_evidence_manual_review
+CA,Lead,https://leadskateshop.com/,community_shopify_2024,false,,https://leadskateshop.com/,unknown,manual_review,JSONDecodeError: Expecting value: line 1 column 1 (char 0),,,,not_applicable
+CA,Slappy's Garage,https://slappysgaragesd.com/,community_shopify_2024,false,404,https://slappysgaragesd.com,non_shopify_or_blocked,custom_adapter_review,,,,,not_applicable
+DC,Crushed,https://crushedskateshop.com/,community_shopify_2024,false,404,https://www.crushedskateshop.com,non_shopify_or_blocked,custom_adapter_review,,,,,not_applicable
+NE,Filter,https://filterskateshop.com/,community_shopify_2024,false,,https://filterskateshop.com/,unknown,manual_review,"ConnectionError: HTTPSConnectionPool(host='filterskateshop.com', port=443): Max retries exceeded with url: /products.json?limit=1 (Caused by NameResolutionError(""HTTPSConnection",,,,not_applicable
+WA,By and By,https://byandbyseattle.com/,community_shopify_2024,true,401,https://byandbyseattle.com,non_shopify_or_blocked,custom_adapter_review,,,,,not_applicable
+ND,THIS,https://thisskateshop.com/,community_shopify_2024,true,200,https://thisskateshop.com,shopify,verified_shopify_ready,,1250,0,0,official_shop_no_current_nike_sb_catalog
+SC,Continuum,https://www.continuumsc.com/,community_shopify_2024,true,200,https://www.continuumsc.com,shopify,verified_shopify_ready,,0,0,0,official_shop_no_current_nike_sb_catalog
+TX,Select,https://slcth.shop/,community_shopify_2024,true,200,https://slcth.shop,shopify,verified_shopify_ready,,1250,0,0,official_shop_no_current_nike_sb_catalog
+VA,Cinema,https://cinemaskateshop.com/,community_shopify_2024,true,200,https://cinemaskateshop.com,shopify,verified_shopify_ready,,143,0,0,official_shop_no_current_nike_sb_catalog
+CA,510 Skateboarding,https://510skateboarding.com/,community_shopify_2024,true,200,https://510skateboarding.com,shopify,active,,547,26,12,target_products_found
+CA,Arts & Rec,https://artsandrecstore.com/,community_shopify_2024,true,200,https://artsandrecstore.com,shopify,verified_shopify_ready,,682,67,46,target_products_found
+CA,Atlas,https://shop.atlasskateboarding.com/,community_shopify_2024,true,200,https://shop.atlasskateboarding.com,shopify,active,,1250,87,40,target_products_found
+CA,Brooklyn Projects,https://brooklynprojects.com/,community_shopify_2024,true,200,https://brooklynprojects.com,shopify,verified_shopify_ready,,1250,123,44,target_products_found
+CA,DLX,https://dlxskateshop.com/,community_shopify_2024,true,200,https://dlxskateshop.com,shopify,verified_shopify_ready,,1250,111,49,target_products_found
+CA,FTC,https://shop.ftcsf.com/,community_shopify_2024,true,200,https://shop.ftcsf.com,shopify,verified_shopify_ready,,163,2,1,target_products_found
+CA,Furnace,https://www.furnaceskate.com/,community_shopify_2024,true,200,https://www.furnaceskate.com,shopify,verified_shopify_ready,,1250,112,51,target_products_found
+CA,Innercity,https://innercityskate.com/,community_shopify_2024,true,200,https://innercityskate.com,shopify,verified_shopify_ready,,833,154,77,target_products_found
+CO,303 Boards,https://www.303boards.com/,community_shopify_2024,true,200,https://www.303boards.com,shopify,verified_shopify_ready,,1250,52,18,target_products_found
+FL,Andrew,https://andrewdowntown.com/,community_shopify_2024,true,200,https://andrewdowntown.com,shopify,verified_shopify_ready,,243,1,1,target_products_found
+IL,Uprise,https://upriseskateshop.com/,community_shopify_2024,true,200,https://upriseskateshop.com,shopify,active,,739,54,15,target_products_found
+MI,Olympia,https://olympiaskateshop.com/,community_shopify_2024,true,200,https://olympiaskateshop.com,shopify,verified_shopify_ready,,1250,38,11,target_products_found
+NC,Black Sheep USA,https://blacksheepskateshop.com/,community_shopify_2024,true,200,https://blacksheepskateshop.com,shopify,active,,1250,85,33,target_products_found
+NC,Stardust,https://www.stardustskateshop.com/,community_shopify_2024,true,200,https://www.stardustskateshop.com,shopify,verified_shopify_ready,,1120,77,39,target_products_found
+NJ,NJ Skateshop,https://njskateshop.com/,community_shopify_2024,true,200,https://njskateshop.com,shopify,active,,722,53,15,target_products_found
+NJ,Travel,https://www.travelskateshop.com/,community_shopify_2024,true,200,https://www.travelskateshop.com,shopify,verified_shopify_ready,,662,154,43,target_products_found
+NJ,Underground,https://www.undergroundskateshop.com/,community_shopify_2024,true,200,https://www.undergroundskateshop.com,shopify,verified_shopify_ready,,497,59,25,target_products_found
+NY,Labor,https://laborskateshop.com/,community_shopify_2024,true,200,https://laborskateshop.com,shopify,verified_shopify_ready,,650,31,10,target_products_found
+OH,Blacklist,https://blacklistboardshop.com/,community_shopify_2024,true,200,https://blacklistboardshop.com,shopify,verified_shopify_ready,,1250,62,24,target_products_found
+OH,Embassy,https://embassyboardshop.com/,community_shopify_2024,true,200,https://embassyboardshop.com,shopify,verified_shopify_ready,,520,29,8,target_products_found
+PA,Holistic,https://holisticskateshop.com/,community_shopify_2024,true,200,https://holisticskateshop.com,shopify,verified_shopify_ready,,1250,81,28,target_products_found
+PA,Nocturnal/Kinetic,https://kineticskateboarding.com/,community_shopify_2024,true,200,https://kineticskateboarding.com,shopify,active,,248,8,3,target_products_found
+TX,Deli,https://deliskatesupply.com/,community_shopify_2024,true,200,https://deliskatesupply.com,shopify,verified_shopify_ready,,1250,89,46,target_products_found
+TX,Geometric,https://www.geometricskateshop.com/,community_shopify_2024,true,200,https://www.geometricskateshop.com,shopify,verified_shopify_ready,,982,110,61,target_products_found
+TX,Magnolia,https://www.magnoliaskateshop.com/,community_shopify_2024,true,200,https://www.magnoliaskateshop.com,shopify,verified_shopify_ready,,414,86,27,target_products_found
+TX,No-Comply,https://nocomplyatx.com/,community_shopify_2024,true,200,https://nocomplyatx.com,shopify,active,,1250,81,21,target_products_found
+TX,Southside,https://southsideskateshop.com/,community_shopify_2024,true,200,https://southsideskateshop.com,shopify,verified_shopify_ready,,1250,74,40,target_products_found
+UT,Time Machine,https://timemachineskateshop.com/,community_shopify_2024,true,200,https://timemachineskateshop.com,shopify,verified_shopify_ready,,1250,85,34,target_products_found
+VA,Venue,https://venueskateboards.com/,community_shopify_2024,true,200,https://venueskateboards.com,shopify,verified_shopify_ready,,247,12,6,target_products_found
+WA,35th North,https://35thnorth.com/,community_shopify_2024,true,200,https://35thnorth.com,shopify,verified_shopify_ready,,1036,71,25,target_products_found
+WA,Apple Valley Emporium,https://applevalleyemporium.com/,community_shopify_2024,true,200,https://applevalleyemporium.com,shopify,verified_shopify_ready,,506,11,3,target_products_found
