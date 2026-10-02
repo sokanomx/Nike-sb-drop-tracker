@@ -2,7 +2,7 @@ import unittest
 from decimal import Decimal
 
 from tracker.config import Config
-from tracker.filters import category, target_variants
+from tracker.filters import category, sale_variants, target_variants
 from tracker.models import Product, Variant
 
 
@@ -13,8 +13,14 @@ def product(title, product_type, variants, vendor="Nike SB"):
     return Product("1", title, "https://example.com/products/one", None, product_type, vendor, (), tuple(variants))
 
 
-def variant(identifier, title, available=True):
-    return Variant(identifier, title, available, Decimal("125.00"))
+def variant(identifier, title, available=True, price="125.00", compare_at=None):
+    return Variant(
+        identifier,
+        title,
+        available,
+        Decimal(price),
+        Decimal(compare_at) if compare_at is not None else None,
+    )
 
 
 class FilterTests(unittest.TestCase):
@@ -37,11 +43,19 @@ class FilterTests(unittest.TestCase):
         self.assertEqual(category(item), "bottom")
         self.assertEqual([value.id for value in target_variants(item, "bottom", CONFIG)], ["v1"])
 
-    def test_does_not_treat_accessory_as_apparel(self):
+    def test_matches_accessory_in_all_sizes(self):
         item = product("Nike SB Club Cap", "Accessories", [variant("v1", "Large")])
-        self.assertIsNone(category(item))
+        self.assertEqual(category(item), "accessory")
+        self.assertEqual([value.id for value in target_variants(item, "accessory", CONFIG)], ["v1"])
+
+    def test_sale_variants_require_real_markdown_and_availability(self):
+        variants = (
+            variant("sale", "Large", price="30", compare_at="45"),
+            variant("full", "Large", price="45", compare_at="45"),
+            variant("unavailable", "Large", False, price="30", compare_at="45"),
+        )
+        self.assertEqual([value.id for value in sale_variants(variants)], ["sale"])
 
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -12,6 +12,10 @@ LOW_HIGH_RE = re.compile(r"\b(?:low|high)(?:\s+pro)?\b", re.IGNORECASE)
 TOP_RE = re.compile(r"\b(?:tee|t-shirt|shirt|hoodie|sweatshirt|crewneck|jacket|top|jersey|flannel)\b", re.IGNORECASE)
 BOTTOM_RE = re.compile(r"\b(?:pant|pants|trouser|chino|jean|short|shorts)\b", re.IGNORECASE)
 APPAREL_RE = re.compile(r"\b(?:apparel|clothing|tee|t-shirt|shirt|hoodie|sweatshirt|crewneck|jacket|pant|pants|trouser|chino|jean|short|shorts)\b", re.IGNORECASE)
+ACCESSORY_RE = re.compile(
+    r"\b(?:accessory|accessories|bag|backpack|beanie|belt|bottle|cap|eyewear|glove|gloves|hat|headwear|keychain|lanyard|sock|socks|sunglasses|towel|wallet)\b",
+    re.IGNORECASE,
+)
 
 
 def _haystack(product: Product) -> str:
@@ -32,6 +36,8 @@ def category(product: Product) -> str | None:
         if BOTTOM_RE.search(text):
             return "bottom"
         return "top"
+    if ACCESSORY_RE.search(text):
+        return "accessory"
     return None
 
 
@@ -42,6 +48,8 @@ def _normalized_size(value: str) -> str:
 
 
 def target_variants(product: Product, product_category: str, config: Config) -> tuple[Variant, ...]:
+    if product_category == "accessory":
+        return product.variants
     wanted = {
         "shoe": config.shoe_sizes,
         "top": config.top_sizes,
@@ -54,3 +62,6 @@ def target_variants(product: Product, product_category: str, config: Config) -> 
         if _normalized_size(variant.title) in normalized_wanted
     )
 
+
+def sale_variants(variants: tuple[Variant, ...]) -> tuple[Variant, ...]:
+    return tuple(variant for variant in variants if variant.available and variant.on_sale)

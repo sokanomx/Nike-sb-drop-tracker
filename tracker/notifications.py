@@ -24,6 +24,15 @@ def _price_text(match: Match) -> str:
     return f"${prices[0]:.2f}–${prices[-1]:.2f}"
 
 
+def _regular_price_text(match: Match) -> str:
+    prices = match.regular_prices
+    if not prices:
+        return "—"
+    if len(prices) == 1:
+        return f"${prices[0]:.2f}"
+    return f"${prices[0]:.2f}–${prices[-1]:.2f}"
+
+
 def send_discord(match: Match, webhook_url: str) -> None:
     local = "📍 LOCAL · " if match.store.local else ""
     sizes = ", ".join(match.available_sizes)
@@ -55,7 +64,7 @@ def send_discord_test(webhook_url: str) -> None:
 
 def digest_html(matches: list[Match]) -> str:
     if not matches:
-        return "<h1>Nike SB weekly recap</h1><p>No target-size inventory was available when this recap ran.</p>"
+        return "<h1>Nike SB weekly sale recap</h1><p>No sale-priced Nike SB apparel or accessories were available when this recap ran.</p>"
     rows = []
     for match in sorted(matches, key=lambda item: (not item.store.local, item.store.name, item.product.title)):
         local = "📍 LOCAL" if match.store.local else ""
@@ -66,20 +75,21 @@ def digest_html(matches: list[Match]) -> str:
             f"<td><a href=\"{html.escape(match.product.url, quote=True)}\">{html.escape(match.product.title)}</a></td>"
             f"<td>{html.escape(', '.join(match.available_sizes))}</td>"
             f"<td>{html.escape(_price_text(match))}</td>"
+            f"<td>{html.escape(_regular_price_text(match))}</td>"
             "</tr>"
         )
     return (
-        "<h1>Nike SB weekly availability recap</h1>"
+        "<h1>Nike SB weekly sale recap</h1>"
         "<p>Availability was checked when this message was generated and may change quickly.</p>"
         "<table border=\"1\" cellpadding=\"6\" cellspacing=\"0\">"
-        "<thead><tr><th></th><th>Store</th><th>Product</th><th>Target size</th><th>Price</th></tr></thead>"
+        "<thead><tr><th></th><th>Store</th><th>Product</th><th>Available option</th><th>Sale price</th><th>Regular price</th></tr></thead>"
         f"<tbody>{''.join(rows)}</tbody></table>"
     )
 
 
 def send_digest(matches: list[Match], *, sender: str, password: str, recipient: str) -> None:
     message = EmailMessage()
-    message["Subject"] = "Nike SB weekly size availability recap"
+    message["Subject"] = "Nike SB weekly apparel & accessories sale recap"
     message["From"] = sender
     message["To"] = recipient
     message.set_content("Your email client must support HTML to view this recap.")

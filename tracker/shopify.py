@@ -25,6 +25,15 @@ def _money(value: object) -> Decimal:
         return Decimal("0")
 
 
+def _optional_money(value: object) -> Decimal | None:
+    if value in (None, ""):
+        return None
+    try:
+        return Decimal(str(value))
+    except (InvalidOperation, TypeError):
+        return None
+
+
 def _product_from_json(store: Store, raw: dict) -> Product:
     handle = str(raw.get("handle", "")).strip()
     product_url = urljoin(store.url.rstrip("/") + "/", f"products/{handle}")
@@ -36,6 +45,7 @@ def _product_from_json(store: Store, raw: dict) -> Product:
             title=str(item.get("title", "")).strip(),
             available=bool(item.get("available", False)),
             price=_money(item.get("price", "0")),
+            compare_at_price=_optional_money(item.get("compare_at_price")),
         )
         for item in raw.get("variants", [])
     )

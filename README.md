@@ -1,8 +1,8 @@
 # Nike SB Drop Tracker
 
-A notification-only tracker for Nike SB Dunk Low/High releases and Nike SB
-apparel in selected sizes. It polls verified Shopify storefronts, sends immediate
-Discord alerts, and emails a Monday availability recap.
+A notification-only tracker for Nike SB Dunk Low/High releases plus sale-priced
+Nike SB apparel and accessories. It polls verified Shopify storefronts, sends
+immediate size-11 Dunk Discord alerts, and emails a Monday sale recap.
 
 The tracker never logs in to a store, adds products to a cart, or purchases
 anything.
@@ -10,8 +10,9 @@ anything.
 ## What it watches
 
 - Nike SB Dunk Low and Dunk High shoes in US men's size 11
-- New Nike SB apparel in Large/Large Tall tops and waist 33–34 bottoms
-- Brand-new listings and target-size restocks
+- Nike SB apparel on sale in Large/Large Tall tops and waist 33–34 bottoms
+- All available Nike SB accessories on sale
+- Brand-new size-11 Dunk listings and size-specific restocks
 - Nationwide shops, with Bay Area retailers marked `LOCAL`
 
 Each newly configured store is silently seeded on its first successful scan.
@@ -42,6 +43,10 @@ No secret belongs in `config.json`, `stores.json`, or any committed file.
 6. Run **poll** manually and inspect the log. No existing item should alert.
 7. Leave the workflows enabled. Polling is scheduled about every five minutes;
    GitHub may occasionally start a scheduled run late.
+
+Full-price shoes remain eligible for immediate Discord alerts. Apparel and
+accessories never generate Discord alerts and appear only in the weekly email
+when Shopify reports a genuine markdown (regular price above current price).
 
 The Monday recap workflow evaluates Pacific time at runtime. It has two UTC
 schedules so it continues to land near 9:00 AM through daylight-saving changes,

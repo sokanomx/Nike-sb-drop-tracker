@@ -10,6 +10,11 @@ class Variant:
     title: str
     available: bool
     price: Decimal
+    compare_at_price: Decimal | None = None
+
+    @property
+    def on_sale(self) -> bool:
+        return self.compare_at_price is not None and self.compare_at_price > self.price
 
 
 @dataclass(frozen=True)
@@ -44,6 +49,18 @@ class Match:
         return tuple(sorted({variant.price for variant in self.target_variants}))
 
     @property
+    def regular_prices(self) -> tuple[Decimal, ...]:
+        return tuple(
+            sorted(
+                {
+                    variant.compare_at_price
+                    for variant in self.target_variants
+                    if variant.compare_at_price is not None
+                }
+            )
+        )
+
+    @property
     def available_sizes(self) -> tuple[str, ...]:
         return tuple(variant.title for variant in self.target_variants if variant.available)
 
@@ -54,4 +71,3 @@ class ScanResult:
     matches: list[Match] = field(default_factory=list)
     snapshot: dict[str, dict[str, bool]] = field(default_factory=dict)
     error: str | None = None
-

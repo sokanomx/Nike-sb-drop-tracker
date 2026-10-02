@@ -7,6 +7,8 @@ from zoneinfo import ZoneInfo
 
 from .config import load_config, load_stores
 from .engine import scan_all, update_state
+from .filters import sale_variants
+from .models import Match
 from .notifications import required_env, send_digest, send_discord, send_discord_test
 from .state import load_state, save_state
 
@@ -49,6 +51,19 @@ def _current_inventory(config, stores):
     )
 
 
+def _weekly_sale_matches(matches):
+    digest_matches = []
+    for match in matches:
+        if match.category == "shoe":
+            continue
+        discounted = sale_variants(match.target_variants)
+        if discounted:
+            digest_matches.append(
+                Match(match.store, match.product, match.category, discounted, "currently on sale")
+            )
+    return digest_matches
+
+
 def main() -> int:
     args = parser().parse_args()
     if args.command == "test-discord":
@@ -78,6 +93,8 @@ def main() -> int:
             delivery_failed_for: set[str] = set()
             for result in successful:
                 for match in result.matches:
+                    if match.category != "shoe":
+                        continue
                     try:
                         send_discord(match, webhook)
                     except Exception as exc:
@@ -101,13 +118,14 @@ def main() -> int:
         print("Digest guard: already sent today")
         return 0
     matches, failures = _current_inventory(config, stores)
+    digest_matches = _weekly_sale_matches(matches)
     if failures == len(stores):
         print("Every store failed; digest was not sent", file=sys.stderr)
         return 1
-    print(f"Digest contains {len(matches)} currently available products; {failures} stores failed")
+    print(f"Digest contains {len(digest_matches)} sale apparel/accessory products; {failures} stores failed")
     if not args.dry_run:
         send_digest(
-            matches,
+            digest_matches,
             sender=required_env("GMAIL_ADDRESS"),
             password=required_env("GMAIL_APP_PASSWORD"),
             recipient=required_env("DIGEST_TO"),

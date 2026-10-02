@@ -14,15 +14,23 @@ class ShopifyParsingTests(unittest.TestCase):
             "vendor": "Nike SB",
             "tags": ["Nike", "SB"],
             "image": {"src": "https://cdn.example/image.jpg"},
-            "variants": [{"id": 456, "title": "11", "available": True, "price": "125.00"}],
+            "variants": [
+                {
+                    "id": 456,
+                    "title": "11",
+                    "available": True,
+                    "price": "100.00",
+                    "compare_at_price": "125.00",
+                }
+            ],
         }
         product = _product_from_json(Store("Example", "https://example.com"), raw)
         self.assertEqual(product.id, "123")
         self.assertEqual(product.url, "https://example.com/products/nike-sb-dunk-low-pro")
         self.assertEqual(product.variants[0].title, "11")
         self.assertTrue(product.variants[0].available)
+        self.assertTrue(product.variants[0].on_sale)
 
 
 if __name__ == "__main__":
     unittest.main()
-
